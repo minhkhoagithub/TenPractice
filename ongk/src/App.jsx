@@ -18,6 +18,18 @@ import "./css/style.css";
 import { CartProvider } from "./component/CartContext.jsx";
 import Cart from "./component/Cart.jsx";
 import ProductList from "./component/ProductList.jsx";
+import { AuthProvider, useAuth } from "./component/AuthContext.jsx";
+import Login from "./component/Login.jsx";
+import Welcome from "./component/Welcome.jsx";
+function AppContent() {
+  const { isLoggedIn } = useAuth();
+
+  return (
+    <div className="app">
+      {isLoggedIn ? <Welcome /> : <Login />}
+    </div>
+  );
+}
 function App() {
   const [count, setCount] = useState(0)
   const [theme, setTheme] = useState("light");
@@ -25,6 +37,7 @@ function App() {
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
+  
   return (
     <>
      
@@ -38,6 +51,9 @@ function App() {
       <Cart />
     </CartProvider>
     </div>
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
         
       </>
   )
