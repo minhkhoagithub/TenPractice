@@ -54,6 +54,8 @@ function App() {
     <AuthProvider>
       <AppContent />
     </AuthProvider>
+
+    <Counter />
         
       </>
   )
