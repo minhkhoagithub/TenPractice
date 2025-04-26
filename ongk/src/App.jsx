@@ -21,6 +21,7 @@ import ProductList from "./component/ProductList.jsx";
 import { AuthProvider, useAuth } from "./component/AuthContext.jsx";
 import Login from "./component/Login.jsx";
 import Welcome from "./component/Welcome.jsx";
+import BMI from "./component/BMI.jsx";
 function AppContent() {
   const { isLoggedIn } = useAuth();
 
@@ -56,6 +57,8 @@ function App() {
     </AuthProvider>
 
     <Counter />
+
+    <BMI/>
         
       </>
   )
